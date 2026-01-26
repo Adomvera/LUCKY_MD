@@ -21,20 +21,21 @@ module.exports = async (context) => {
         const createdDate = new Date(repoData.created_at).toLocaleDateString('en-GB');
         const lastUpdateDate = new Date(repoData.updated_at).toLocaleDateString('en-GB');
 
-        const replyText =
-            `*${botname} Repository Information*\n\n` +
-            `? Stars: ${repoData.stargazers_count}\n` +
-            `? Forks: ${repoData.forks_count}\n` +
-            `? Created: ${createdDate}\n` +
-            `? Last Updated: ${lastUpdateDate}\n` +
-            `? Owner: ${repoData.owner.login}\n\n` +
-            `Select an option below ?`;
+               const replyText = 
+            `╭─❥「❀ 𝙍𝙚𝙥𝙤𝙨𝙞𝙩𝙤𝙧𝙮 𝙄𝙣𝙛𝙤 ❀」\n┃\n` +
+            `┃ ✿ 𝙎𝙩𝙖𝙧𝙨: ${repoData.stargazers_count}\n` +
+            `┃ ✿ 𝙁𝙤𝙧𝙠𝙨: ${repoData.forks_count}\n` +
+            `┃ ✿ 𝘾𝙧𝙚𝙖𝙩𝙚𝙙: ${createdDate}\n` +
+            `┃ ✿ 𝙇𝙖𝙨𝙩 𝙐𝙥𝙙𝙖𝙩𝙚: ${lastUpdateDate}\n` +
+            `┃ ✿ 𝙊𝙬𝙣𝙚𝙧: ${repoData.owner.login}\n┃\n` +
+            `❥┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈➤\n\n` +
+            `🎀 𝙎𝙚𝙡𝙚𝙘𝙩 𝙖𝙣 𝙤𝙥𝙩𝙞𝙤𝙣 𝙗𝙚𝙡𝙤𝙬 ✨`;
 
         await client.sendMessage(
             m.chat,
             {
                 interactiveMessage: {
-                    header: `? ${botname} Info`,
+                    header: `*${botname}*`,
                     title: replyText,
                     footer: `𝒑𝒐𝒘𝒆𝒓𝒆𝒅 𝒃𝒚 𝒇𝒆𝒆-𝒙𝒎𝒅`,
                     buttons: [
@@ -42,53 +43,54 @@ module.exports = async (context) => {
                         {
                             name: 'cta_url',
                             buttonParamsJson: JSON.stringify({
-                                display_text: '? Get Pair',
-                                url: 'https://fee-xmd-pair.onrender.com/'
-                            })
-                        },
-                        {
-                            name: 'cta_url',
-                            buttonParamsJson: JSON.stringify({
-                                display_text: '? Source Repo',
+                                display_text: '📂 𝙎𝙤𝙪𝙧𝙘𝙚 𝙍𝙚𝙥𝙤',
                                 url: 'https://github.com/Fred1e/Fee-Xmd'
                             })
                         },
                         {
                             name: 'cta_url',
                             buttonParamsJson: JSON.stringify({
-                                display_text: '? Visit Site Stream',
+                                display_text: '🌐 𝙑𝙞𝙨𝙞𝙩 𝙎𝙞𝙩𝙚',
                                 url: 'https://fee-xmd.online'
-                            })
-                        },
-                        {
-                            name: 'cta_url',
-                            buttonParamsJson: JSON.stringify({
-                                display_text: '? Download Apk',
-                                url: 'https://files.catbox.moe/9r77s0.apk '
                             })
                         },
                         // Row 2
                         {
                             name: 'cta_url',
                             buttonParamsJson: JSON.stringify({
-                                display_text: '? Github Profile',
+                                display_text: '📱 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙 𝘼𝙥𝙠',
+                                url: 'https://files.catbox.moe/9r77s0.apk'
+                            })
+                        },
+                        {
+                            name: 'cta_url',
+                            buttonParamsJson: JSON.stringify({
+                                display_text: '👨‍💻 𝙂𝙞𝙩𝙝𝙪𝙗 𝙋𝙧𝙤𝙛𝙞𝙡𝙚',
                                 url: 'https://github.com/Fred1e'
                             })
                         },
                         {
                             name: 'cta_url',
                             buttonParamsJson: JSON.stringify({
-                                display_text: '? View Channel',
-                                url: 'https://whatsapp.com/channel/0029Vb6mzVF7tkj42VNPrZ3V '
+                                display_text: '📢 𝙑𝙞𝙚𝙬 𝘾𝙝𝙖𝙣𝙣𝙚𝙡',
+                                url: 'https://whatsapp.com/channel/0029Vb6mzVF7tkj42VNPrZ3V'
                             })
                         },
+                        // Row 3
                         {
                             name: 'cta_url',
                             buttonParamsJson: JSON.stringify({
-                                display_text: '? Join Group',
+                                display_text: '👥 𝙅𝙤𝙞𝙣 𝙂𝙧𝙤𝙪𝙥',
                                 url: 'https://chat.whatsapp.com/FA1GPSjfUQLCyFbquWnRIS'
                             })
-                        }
+                        },
+                        {
+                            name: 'cta_copy',
+                            buttonParamsJson: JSON.stringify({
+                                display_text: '📋 𝘾𝙤𝙥𝙮 𝙍𝙚𝙥𝙤',
+                                url: 'https://github.com/Fred1e/Fee-Xmd'
+                            })
+                        },
                     ]
                 }
             },
