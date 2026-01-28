@@ -81,7 +81,7 @@ module.exports = {
                                 name: 'cta_url',
                                 buttonParamsJson: JSON.stringify({
                                     display_text: '📢 𝙊𝙛𝙛𝙞𝙘𝙞𝙖𝙡 𝘾𝙝𝙖𝙣𝙣𝙚𝙡',
-                                    url: 'https://whatsapp.com/channel/0029Vb6mzVF7tkj42VNPrZ3V',
+                                    url: 'https://whatsapp.com/channel/0029VbBkXG5Dp2Q9Cyhbb02Q',
                                     merchant_url: 'https://whatsapp.com/channel/0029Vb6mzVF7tkj42VNPrZ3V',
                                 }),
                             },
