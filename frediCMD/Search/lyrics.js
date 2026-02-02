@@ -4,12 +4,12 @@ module.exports = async (context) => {
   const { client, m, text } = context;
 
   if (!text) {
-    return m.reply("TELL ME A SONG YOU DUMBASS 🤦🏻 EXAMPLE: .lyrics Alan Walker faded");
+    return m.reply("TELL ME A SONG YOU DUMBASS 🤦🏻 EXAMPLE: .lyrics Alone ft ava max");
   }
 
   try {
     const encodedText = encodeURIComponent(text);
-    const apiUrl = `https://api.elrayyxml.web.id/api/search/lyrics?q=${encodedText}`;
+    const apiUrl = `https://api.deline.web.id/tools/lyrics?title=${encodedText}`;
     const response = await fetch(apiUrl);
     const data = await response.json();
 
@@ -18,14 +18,16 @@ module.exports = async (context) => {
     }
 
     const song = data.result[0];
-    
-    if (!song.lyrics?.plainLyrics) {
+
+    if (!song.plainLyrics) {
       return m.reply(`NO PLAIN LYRICS FOR THIS ONE 🤦🏻 TRY ANOTHER SONG`);
     }
 
-    const cleanLyrics = song.lyrics.plainLyrics;
-    
-    await m.reply(`*${song.title} - ${song.artist}*\n\n${cleanLyrics}\n\n> 𝙁𝙀𝙀-𝙓𝙈𝘿`);
+    const cleanLyrics = song.plainLyrics;
+    const songTitle = song.trackName || song.name;
+    const artistName = song.artistName;
+
+    await m.reply(`*${songTitle} - ${artistName}*\n\n${cleanLyrics}\n\n> ツ 𝒑𝒐𝒘𝒆𝒓𝒆𝒅 𝒃𝒚 𝒇𝒆𝒆-𝒙𝒎𝒅`);
 
   } catch (error) {
     console.error(`LYRICS API ERROR: ${error.message}`);
